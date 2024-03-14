@@ -25,12 +25,13 @@ window.addEventListener("touchmove", (event) => {
 // would try opacity but it would 100 percent not work as you can still click the navbar buttons (despite not being visible)
 
 
-// all of this mess made into easier variables so i (Thomas still) don't scream in agony changing this stuff
+// hopefully simple variables?
+
 let simplifyqueryselectionall = (jsinstructions) => { // used to shorten code hopefully more readable
     document.querySelectorAll(".primary-navbar-lines").forEach((element) => {jsinstructions(element)})
 }
-let primarynavbarmobile = document.querySelector(".primary-navbar-mobile");
-let primarynavbar = document.querySelector(".primary-navbar");
+let primarynavbarmobile = document.querySelector(".primary-navbar-mobile"); // grabby elementy classy primary-navbar-mobile
+let primarynavbar = document.querySelector(".primary-navbar"); // grabby elementy classy primary-navbar
 let header = document.getElementById("header"); // ignore the ugly "getElementById" I am totally sane
 // run on page load
 if (window.innerWidth > 768) {
