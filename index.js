@@ -1,3 +1,4 @@
+
 function currentpositionfunction(theelement) {
     return +(theelement.getBoundingClientRect().top / window.innerHeight).toFixed(
         2
@@ -5,24 +6,9 @@ function currentpositionfunction(theelement) {
 }
 
 
-let uglylayers = document.querySelector(".main-content-ugly");
-window.addEventListener("mousemove", (event) => {
-    let x = event.clientX / window.innerWidth - 0.5, y = event.clientY / window.innerHeight - 0.5;
-    uglylayers.style.transform = `rotateX(${-y}rad) rotateY(${x}rad) rotateZ(0)`;
-});
-// Touchscreen support for the 3D text
-window.addEventListener("touchmove", (event) => {
-    let x = event.touches[0].clientX / window.innerWidth - 0.5, y = event.touches[0].clientY / window.innerHeight - 0.5;
-    x = Math.min(Math.max(x, -0.5), 0.5); // Small issue just found and fixed
-    y = Math.min(Math.max(y, -0.5), 0.5);
-    uglylayers.style.transform = `rotateX(${-y}rad) rotateY(${x}rad) rotateZ(0)`;
-});
-
-
 
 // all things navbar related which took 8 months to do... why
-// kinda works bit janky cant smoothen the display switches ("flex","none")
-// would try opacity but it would 100 percent not work as you can still click the navbar buttons (despite not being visible)
+// kinda works bit janky
 
 
 // hopefully simple variables?
@@ -43,18 +29,18 @@ if (window.innerWidth > 768) {
     primarynavbar.style.flexDirection = "column";
     simplifyqueryselectionall((element) => {element.style.opacity = "0"});
 }
-// run on resize
+// run on window resize
 window.addEventListener("resize", (event) => {
     if (window.innerWidth > 768) {
         primarynavbarmobile.style.display = "none";
         header.style.height = "3rem"; // reset navbar height
         primarynavbar.style.flexDirection = "row"; // and direction
-        simplifyqueryselectionall((element) => {element.style.opacity = "1"; element.style.margin = "0.5rem";}) // default
+        simplifyqueryselectionall((element) => {element.style.opacity = "1"; element.style.margin = "0.5rem";}) // default size and stuff
         navbar = true // navbar fully reset probably
     } else {
         primarynavbarmobile.style.display = "flex"; // turn on the navbar button
         primarynavbar.style.flexDirection = "column"; // switch navbar direction
-        if (navbar == true) { // added if statement because the elements kept going poof while resizing
+        if (navbar == true) { // added if statement because the elements kept going poof while resizing the window
             simplifyqueryselectionall((element) => {element.style.opacity = "0"; element.style.margin = "2rem";}) // turn off the navbar elements
         }
     }
@@ -70,7 +56,4 @@ function navbarmenuclick() {
         simplifyqueryselectionall((element) => {element.style.opacity = "0";}) // turn off the navbar elements
         navbar = true // navbar back to default
     }
-
-    console.log("changed");
-    // rest of menu code
 }
