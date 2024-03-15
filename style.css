@@ -7,28 +7,27 @@ Sources to my madness:
 /*
 WEBSITE GLOBAL CSS
 */
-:root {
-  color-scheme: light dark; /*source 1. idk why dawg*/
-  --main-bg-color: white; /*default*/
-  --main-text-color: black; /*default*/
-}
 * {
   box-sizing: border-box; /*source 2. this saves a lot of headaches*/
   padding: 0;
   margin: 0;
   border: 0;
 }
+:root {
+  color-scheme: light dark; /*source 1. css sucks we need a better standard for this*/
+  --main-bg-color: rgb(0, 0, 0); /*default*/
+  --main-text-color: rgb(255, 255, 255); /*default*/
+  --navbar-bg-color: rgba(255,255,255,0.75); /*default*/
+}
 body {
-  background-color: var(--main-bg-color);
   overflow-x: hidden;
 }
-/* @media (prefers-color-scheme: light) {
-
-} */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --main-bg-color: #696666;
-    --main-text-color: white;
+    /*inverted*/
+    --main-bg-color: rgb(255, 255, 255);
+    --main-text-color: rgb(0, 0, 0);
+    --navbar-bg-color: rgba(0, 0, 0, 0.75);
   }
 }
 /**
@@ -45,10 +44,10 @@ header {
 }
 
 .primary-navbar {
-  display: block;
+  display: flex;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.767);
+  background-color: var(--main-bg-color);
   list-style: none;
   justify-content: center;
   align-items: center;
@@ -75,21 +74,25 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
-  top: 0.5rem;
-  padding-right: 2.5rem;
+  height: 3rem;
+  top: 0;
 }
 .baruno, .bardos, .bartres {
   width: 10%;
-  height: 5px;
-  background-color: #000000;
-  margin: 2px 0;
+  height: 10%;
+  background-color: var(--main-text-color); /*text color..*/
+  margin: 0.15rem 0;
 }
 .maincontent {
   display: flex;
+  height: 10rem;
+  align-items: center;
+  justify-content: center;
   margin-top: 5rem;
   color: var(--main-text-color);
+  background-color: var(--main-bg-color);
 }
 
 
