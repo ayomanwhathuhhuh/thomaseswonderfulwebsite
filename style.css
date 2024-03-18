@@ -7,36 +7,39 @@ Sources to my madness:
 /*
 WEBSITE GLOBAL CSS
 */
-:root {
-  color-scheme: light dark; /*source 1. idk why dawg*/
-  --main-bg-color: white; /*default*/
-  --main-text-color: black; /*default*/
-}
 * {
   box-sizing: border-box; /*source 2. this saves a lot of headaches*/
   padding: 0;
   margin: 0;
   border: 0;
 }
-body {
-  background-color: var(--main-bg-color);
-  overflow-x: hidden;
+:root {
+  color-scheme: light dark; /*source 1. css sucks we need a better standard for this*/
 }
-/* @media (prefers-color-scheme: light) {
-
-} */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --main-bg-color: #696666;
-    --main-text-color: white;
+    /*inverted*/
+    --main-bg-color: rgb(255, 255, 255);
+    --main-text-color: rgb(0, 0, 0);
+    --navbar-bg-color: rgba(0, 0, 0, 0.5);
+    --navbar-text-color: rgb(255, 255, 255);
   }
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+  --main-bg-color: rgb(49, 49, 49); /*default*/
+  --main-text-color: rgb(255, 255, 255); /*default*/
+  --navbar-bg-color: rgba(255, 255, 255, 0.5); /*default*/
+  --navbar-text-color: rgb(0, 0, 0);
+  }
+}
+
 /**
 STUFF?
 **/
 header {
   display: flex;
-  position: absolute; /*Remains at the same spot on the screen AND takes up space*/
+  position: fixed; /*Remains at the same spot on the screen AND takes up space*/
   top: 0;
   z-index: 9;
   height: 3rem;
@@ -45,10 +48,11 @@ header {
 }
 
 .primary-navbar {
-  display: block;
+  display: flex;
+  background-color: var(--navbar-bg-color);
+  color: var(--navbar-text-color);
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.767);
   list-style: none;
   justify-content: center;
   align-items: center;
@@ -75,24 +79,59 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
-  top: 0.5rem;
-  padding-right: 2.5rem;
+  height: 3rem;
+  top: 0;
 }
 .baruno, .bardos, .bartres {
   width: 10%;
-  height: 5px;
-  background-color: #000000;
-  margin: 2px 0;
+  height: 10%;
+  background-color: var(--main-text-color); /*text color..*/
+  margin: 0.15rem 0;
 }
 .maincontent {
   display: flex;
-  margin-top: 5rem;
+  flex-direction: column;
+  height: 10rem;
   color: var(--main-text-color);
+  background-color: var(--main-bg-color);
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
 }
-
-
+.secondarycontent {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
+}
+.secondarycontent-divs {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  width: 50%;
+  flex-direction: column;
+  border: 0.25rem black solid;
+}
+.secondarycontent-divs .important-text {
+  display: flex;
+  font-size: x-large;
+  margin: 0.67em;
+  font-weight: bold;
+}
+.secondarycontent-divs-weird .important-text {
+  display: flex;
+  width: fit-content;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-image: radial-gradient(circle, red,orange,rgb(255, 255, 0),rgb(0, 255, 0),rgb(70, 70, 255),rgb(255, 0, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
 /*
   media queries
 */
