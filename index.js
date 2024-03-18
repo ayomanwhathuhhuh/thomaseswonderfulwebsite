@@ -66,6 +66,7 @@ function navbarmenuclick() {
 
 // others
 // gotta love javascript and how cursed it is
+doxerboxer.innerText = "nothing... 1x";
 if (location.protocol !== 'file:') {
     const getJSON = async url => {
         const response = await fetch(url);
