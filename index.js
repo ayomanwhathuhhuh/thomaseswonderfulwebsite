@@ -33,27 +33,27 @@ if (window.innerWidth > 768) {
 let debounce = false; // to stop the event from running a trillion times
 window.addEventListener("resize", (event) => {
     if (debounce == false) {
-    if (window.innerWidth > 768) {
-        primarynavbarmobile.style.display = "none";
-        header.style.height = "3rem"; // reset navbar height
-        primarynavbar.style.flexDirection = "row"; // and direction
-        simplifyqueryselectionall((element) => { element.style.opacity = "1"; element.style.margin = "0.5rem"; element.style.pointerEvents = "auto"; }) // default size and stuff
-        navbar = true // navbar fully reset probably
-    } else {
-        primarynavbarmobile.style.display = "flex"; // turn on the navbar button
-        primarynavbar.style.flexDirection = "column"; // switch navbar direction
-        if (navbar == true) { // added if statement because the elements kept going poof while resizing the window
-            simplifyqueryselectionall((element) => { element.style.opacity = "0"; element.style.margin = "2rem"; element.style.pointerEvents = "none"; }) // turn off the navbar elements
+        if (window.innerWidth > 768) {
+            primarynavbarmobile.style.display = "none";
+            header.style.height = "3rem"; // reset navbar height
+            primarynavbar.style.flexDirection = "row"; // and direction
+            simplifyqueryselectionall((element) => { element.style.opacity = "1"; element.style.margin = "0.5rem"; element.style.pointerEvents = "auto"; }) // default size and stuff
+            navbar = true // navbar fully reset probably
+        } else {
+            primarynavbarmobile.style.display = "flex"; // turn on the navbar button
+            primarynavbar.style.flexDirection = "column"; // switch navbar direction
+            if (navbar == true) { // added if statement because the elements kept going poof while resizing the window
+                simplifyqueryselectionall((element) => { element.style.opacity = "0"; element.style.margin = "2rem"; element.style.pointerEvents = "none"; }) // turn off the navbar elements
+            }
         }
-    }
-    debounce = true
-    setTimeout(() => {debounce = false;}, 50);
+        debounce = true
+        setTimeout(() => { debounce = false; }, 50);
     }
 });
 let navbar = true;
 function navbarmenuclick() {
     if (navbar == true) {
-        header.style.height = "100vh";
+        header.style.height = "50vh";
         simplifyqueryselectionall((element) => { element.style.opacity = "1"; element.style.pointerEvents = "auto"; }) // expanded
         navbar = false // expanded navbar
     } else { // run when either the window is bigger then 768 pixels OR the navbar is collapsing (idk how to spell)
@@ -61,4 +61,26 @@ function navbarmenuclick() {
         simplifyqueryselectionall((element) => { element.style.opacity = "0"; element.style.pointerEvents = "none"; }) // turn off the navbar elements
         navbar = true // navbar back to default
     }
+}
+
+
+// others
+// gotta love javascript and how cursed it is
+location.search
+const getJSON = async url => {
+    const response = await fetch(url);
+    return response.json();
+}
+let doxerboxer = document.getElementById("doxerboxer");
+let doxarray = {
+    location: "none",
+}
+console.log("Fetching data...");
+getJSON("https://geolocation-db.com/json/").then(data => getJSON(`https://ezcmd.com/apps/api_ezip_locator/lookup/GUEST_USER/-1/${data.IPv4}`)
+        .then(data2 => {doxarray.location = data2; datafinish()}))
+    
+function datafinish() {
+    let short = doxarray.location.nearest_postal_code_info
+    let finaltopping = [short.place_name,short]
+    doxerboxer.innerText = "results: \n" + finaltopping.place_name;
 }
