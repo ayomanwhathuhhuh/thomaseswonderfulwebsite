@@ -73,7 +73,7 @@ if (location.protocol !== 'file:') {
     }
     let doxerboxer = document.getElementById("doxerboxer");
     let doxarray = []
-    doxerboxer.innerText("nothing...");
+    doxerboxer.innerText = "nothing...";
     getJSON("https://geolocation-db.com/json/")
         .then(data => { // first lookup for basic information not very accurate
             doxarray[0] = data; // make sure to store that ipv4 address
@@ -83,7 +83,7 @@ if (location.protocol !== 'file:') {
                     datafinish(); // call the final function since all of the information is now here
                 })
         })
-        doxerboxer.innerText("nothing... still");
+        doxerboxer.innerText = "nothing... still";
     function datafinish() {
         let short = doxarray[1].nearest_postal_code_info; // to make the array readable
         let firstarray = [short.country_name, short.country_code, short.postal_code, short.place_name, short.state, short.province, "Latitude " + short.lat + " Degrees", "Longitude " + short.lon + " Degrees"];
