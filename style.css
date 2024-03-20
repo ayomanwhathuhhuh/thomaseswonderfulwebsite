@@ -67,7 +67,6 @@ header {
   align-items: center;
   font-size: 1.25rem;
   font-family: 'Helvetica', 'Arial', sans-serif;
-  transition: all 0.5s;
   margin: 0.5rem;
 }
 .primary-navbar li a {

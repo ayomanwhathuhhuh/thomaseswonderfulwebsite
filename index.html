@@ -9,19 +9,20 @@
   <link rel="stylesheet" href="style.css">
 
   <!--Script area because thomas doesnt want to cry himself to sleep over a dumb js issue *should* load only when the WHOLE website is loaded-->
-  <script src="index.js" async></script>
+  <script src="index.js" async="true"></script>
 </head>
 
 <body>
   <!--Navbar-->
-  <header id="header">
+  <header class="primary-header">
     <nav class="primary-navbar" style="display: flex;">
-      <div class="primary-navbar-mobile" onclick="navbarmenuclick()">
+      <div class="primary-navbar-mobile">
         <div class="baruno"></div>
         <div class="bardos"></div>
         <div class="bartres"></div>
       </div>
-      <li class="primary-navbar-lines"><a href="#top">Home</a></li>
+      <li class="primary-navbar-lines"><a>Home</a></li>
+      <li class="primary-navbar-lines"><a>hello</a></li>
       <!--more soon hopefully-->
     </nav>
   </header>
