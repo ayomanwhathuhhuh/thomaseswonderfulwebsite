@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thomas website!!!</title>
+    <!--Main stylesheet-->
+    <link rel="stylesheet" href="style.css" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>thomas website!!!</title>
-  <!--Main stylesheet-->
-  <link rel="stylesheet" href="style.css">
+    <!--Script area because thomas doesnt want to cry himself to sleep over a dumb js issue *should* load only when the WHOLE website is loaded-->
+    <script src="index.js" type="module" async></script>
+  </head>
 
-  <!--Script area because thomas doesnt want to cry himself to sleep over a dumb js issue *should* load only when the WHOLE website is loaded-->
-  <script src="index.js" type="module" async></script>
-</head>
+  <body>
+    <!--Navbar-->
+    <header id="header">
+      <nav class="primary-navbar" style="display: flex">
+        <div class="primary-navbar-mobile" onclick="navbarmenuclick()">
+          <div class="baruno"></div>
+          <div class="bardos"></div>
+          <div class="bartres"></div>
+        </div>
+        <li class="primary-navbar-lines"><a href="#top">Home</a></li>
+        <!--more soon hopefully-->
+      </nav>
+    </header>
+    <div id="tipofthetop" class="maincontent">
+      <h1>welcome to my new website</h1>
+      <p>it took forever to make this</p>
+    </div>
 
-<body>
-  <!--Navbar-->
-  <header id="header">
-    <nav class="primary-navbar" style="display: flex;">
-      <div class="primary-navbar-mobile" onclick="navbarmenuclick()">
-        <div class="baruno"></div>
-        <div class="bardos"></div>
-        <div class="bartres"></div>
+    <div class="secondarycontent">
+      <div class="secondarycontent-divs secondarycontent-divs-weird">
+        <span class="important-text">cool text :)</span>
+        <p>kanye aint droppin jordan</p>
       </div>
-      <li class="primary-navbar-lines"><a href="#top">Home</a></li>
-      <!--more soon hopefully-->
-    </nav>
-  </header>
-  <div id="tipofthetop" class="maincontent">
-    <h1>welcome to my new website</h1>
-    <p>it took forever to make this</p>
-  </div>
-
-  <div class="secondarycontent">
-    <div class="secondarycontent-divs secondarycontent-divs-weird">
-      <span class="important-text">cool text :)</span>
-      <p>kanye aint droppin jordan</p>
+      <div class="secondarycontent-divs">
+        <span class="important-text">watch rick and morty</span>
+        <p>
+          the new season and the rest of the episodes are on like different 8
+          streaming services...
+        </p>
+      </div>
+      <div class="secondarycontent-divs">
+        <span class="important-text">Hmm...</span>
+        <p id="doxerboxer"></p>
+      </div>
+      <div class="secondarycontent-divs">
+        <span class="important-text">teachers should get a ad blocker</span>
+        <p>
+          i know students can't install extensions but surely teachers can
+          right?
+        </p>
+      </div>
     </div>
-    <div class="secondarycontent-divs">
-      <span class="important-text">watch rick and morty</span>
-      <p>the new season and the rest of the episodes are on like different 8 streaming services...</p>
-    </div>
-    <div class="secondarycontent-divs">
-      <span class="important-text">Hmm...</span>
-      <p id="doxerboxer"></p>
-    </div>
-    <div class="secondarycontent-divs">
-      <span class="important-text">teachers should get a ad blocker</span>
-      <p>i know students can't install extensions but surely teachers can right?</p>
-    </div>
-  </div>
-  
+  </body>
 </html>
