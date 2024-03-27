@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "vite": "^5.2.6"
-  }
+  },
+  "name": "thomaseswonderfulwebsite",
+  "description": "i do things here now nice...\r ![merica](https://github.com/ayomanwhathuhhuh/thomaseswonderfulwebsite/assets/123750756/80630242-e65e-4eb3-8b46-5c3251e24e2a)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "vite": "^5.2.6"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "thomaseswonderfulwebsite"
+  },
+  "keywords": [
+    "boring"
+  ],
+  "author": "ayowhatmanhuhhuh",
+  "license": "ISC"
 }
