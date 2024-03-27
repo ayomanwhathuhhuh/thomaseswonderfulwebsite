@@ -1,11 +1,10 @@
 {
-  "name": "thomaseswonderfulwebsite",
-  "version": "1.0.0",
-  "description": "i do things here now nice...\r ![merica](https://github.com/ayomanwhathuhhuh/thomaseswonderfulwebsite/assets/123750756/80630242-e65e-4eb3-8b46-5c3251e24e2a)",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "vite": "^5.2.6"
+  }
 }
