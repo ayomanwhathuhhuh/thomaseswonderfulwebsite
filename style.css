@@ -30,8 +30,8 @@ WEBSITE GLOBAL CSS
   :root {
   --main-bg-color: rgb(49, 49, 49); /*default*/
   --main-text-color: rgb(255, 255, 255); /*default*/
-  --navbar-bg-color: rgba(255, 255, 255, 0.5); /*default*/
-  --navbar-text-color: rgb(0, 0, 0);
+  --navbar-bg-color: rgba(0, 0, 0, 0.5); /*default*/
+  --navbar-text-color: rgb(255, 255, 255);
   }
 }
 
