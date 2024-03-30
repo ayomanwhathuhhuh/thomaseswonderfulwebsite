@@ -62,7 +62,7 @@ header {
 }
 
 .primary-navbar li {
-  display: flex;
+  display: flex; /*Default?*/
   width: 15%;
   justify-content: center;
   align-items: center;
@@ -76,8 +76,8 @@ header {
   text-decoration: none;
 }
 .primary-navbar-mobile {
+  display: none; /*Default so it doesnt flicker when changing via js*/
   position: absolute;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
