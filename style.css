@@ -38,6 +38,9 @@ WEBSITE GLOBAL CSS
 /**
 STUFF?
 **/
+body {
+  background-color: var(--main-bg-color);
+}
 header {
   display: flex;
   position: fixed; /*Remains at the same spot on the screen AND takes up space*/
@@ -62,7 +65,7 @@ header {
 }
 
 .primary-navbar li {
-  display: flex;
+  display: flex; /*Default?*/
   width: 15%;
   justify-content: center;
   align-items: center;
@@ -76,8 +79,8 @@ header {
   text-decoration: none;
 }
 .primary-navbar-mobile {
+  display: none; /*Default so it doesnt flicker when changing via js*/
   position: absolute;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -105,19 +108,22 @@ header {
   display: flex;
   height: fit-content;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   color: var(--main-text-color);
   background-color: var(--main-bg-color);
 }
 .secondarycontent-divs {
+  width: 100%;
+  max-width: 50%;
+  height: 15rem;
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1rem;
-  width: 100%;
-  height: 15rem;
   flex-direction: column;
-  border: 0.25rem black solid;
+  border: 0.15rem black solid;
   border-radius: 3rem;
 }
 .secondarycontent-divs .important-text {
