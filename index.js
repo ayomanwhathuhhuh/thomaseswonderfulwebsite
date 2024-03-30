@@ -38,7 +38,7 @@ function handlenavbar(args) {
     if (window.innerWidth > 768) {
       primarynavbarmobile.style.display = "none";
       primarynavbar.style.flexDirection = "row";
-      header.style.height = "3rem"; // reset navbar height only when the window is big enough
+      header.style.maxHeight = "3rem"; // reset navbar height only when the window is big enough
       primarynavbarlines((element) => {
         element.style.opacity = "1";
         element.style.margin = "2rem";
@@ -58,14 +58,14 @@ function handlenavbar(args) {
     }
   } else if (args == "click") {
     if (navbartogglevar == true) {
-      header.style.height = "25vh";
+      header.style.maxHeight = "25vh";
       primarynavbarlines((element) => {
         element.style.opacity = "1";
         element.style.pointerEvents = "auto";
       });
       navbartogglevar = false;
     } else {
-      header.style.height = "3rem";
+      header.style.maxHeight = "3rem";
       primarynavbarlines((element) => {
         element.style.opacity = "0";
         element.style.pointerEvents = "none";
