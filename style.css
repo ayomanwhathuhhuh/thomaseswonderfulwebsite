@@ -83,10 +83,10 @@ header {
   position: absolute;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 100%;
   height: 3rem;
   top: 0;
+  left: 1rem;
 }
 .baruno, .bardos, .bartres {
   width: 10%;
