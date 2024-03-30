@@ -1,72 +1,57 @@
-
 function currentpositionfunction(theelement) {
-    return +(theelement.getBoundingClientRect().top / window.innerHeight).toFixed(
-        2
-    );
+  return +(theelement.getBoundingClientRect().top / window.innerHeight).toFixed(
+    2
+  );
 }
 // MUCH BETTER version of navbar that got deleted on accident
 let navbartogglevar = false;
 let primarynavbarmobile = document.querySelector(".primary-navbar-mobile");
-let primarynavbar = document.querySelectorAll(".primary-navbar-lines");
+let primarynavbar = (passedfunction) =>
+  document
+    .querySelectorAll(".primary-navbar-lines")
+    .forEach((element) => passedfunction(element));
+// explanation of primary navbar function since even i struggle to understand my big brain
+/* i threw this into chat gpt and its explanation is pretty good...
+Sure, let's break down the provided line of JavaScript code:
+
+```javascript
+let primarynavbar = (passedfunction) => document.querySelectorAll(".primary-navbar-lines").forEach((element) => passedfunction(element));
+```
+
+This line of code defines a variable `primarynavbar` and assigns it a function. Let's break it down step by step:
+
+1. `let primarynavbar`: This declares a variable named `primarynavbar` using the `let` keyword. Variables declared with `let` can be reassigned.
+
+2. `(passedfunction) =>`: This part signifies that the variable `primarynavbar` is being assigned a function. This function takes one argument, which is named `passedfunction`.
+
+3. `document.querySelectorAll(".primary-navbar-lines")`: This part uses the `document.querySelectorAll()` method to select all elements in the document that have a class of `primary-navbar-lines`. This method returns a NodeList containing all matching elements.
+
+4. `.forEach((element)=>passedfunction(element))`: This part iterates over each element in the NodeList returned by `document.querySelectorAll()`. For each element, it executes the function passed to `primarynavbar` (which is stored in the `passedfunction` parameter) with the current element as an argument.
+
+In summary, this line of code defines a function `primarynavbar` that takes another function as an argument (`passedfunction`). It selects all elements with the class `primary-navbar-lines`, and for each of these elements, it executes the function `passedfunction`. This allows for a flexible way to perform operations on each element selected by the class `.primary-navbar-lines`.
+*/
+
 let header = document.querySelector("header");
 function handlenavbar(args) {
-    if (args == "resize" || args == "onload") {
-        if (window.innerWidth > 768) {
-            primarynavbarmobile.style.display = "none";
-            primarynavbar.style.flexDirection = "row";
-        } else {
-            primarynavbarmobile.style.display = "flex";
-            primarynavbar.style.flexDirection = "column";
-        }
-    } else if (args == "click") {
-        if (navbartogglevar == true) {
-            header.style.height = "3rem";
-            navbartogglevar = false;
-        } else {
-            header.style.height = "25vh";
-            navbartogglevar = true;
-        }
+  if (args == "resize" || args == "onload") {
+    if (window.innerWidth > 768) {
+      primarynavbarmobile.style.display = "none";
+      primarynavbar((element) => (element.style.flexDirection = "row"));
+    } else {
+      primarynavbarmobile.style.display = "flex";
+      primarynavbar((element) => (element.style.flexDirection = "column"));
     }
+  } else if (args == "click") {
+    if (navbartogglevar == true) {
+      header.style.height = "3rem";
+      navbartogglevar = false;
+    } else {
+      header.style.height = "25vh";
+      navbartogglevar = true;
+    }
+  }
 }
 // run on window resize or element click
 window.addEventListener("resize", () => handlenavbar("resize"));
 primarynavbarmobile.addEventListener("click", () => handlenavbar("click"));
-
 handlenavbar("onload"); // when the js file is ran for the first time.
-
-// others
-// gotta love javascript and how cursed it is
-doxerboxer.innerText = "nothing...";
-/*
-if (location.protocol !== 'file:') {
-    const getJSON = async url => {
-        const response = await fetch(url);
-        return response.json();
-    }
-    let doxerboxer = document.getElementById("doxerboxer");
-    let doxarray = []
-    doxerboxer.innerText = "nothing...";
-    getJSON("https://geolocation-db.com/json/")
-        .then(data => { // first lookup for basic information not very accurate
-            doxarray[0] = data; // make sure to store that ipv4 address
-            getJSON(`https://ezcmd.com/apps/api_ezip_locator/lookup/GUEST_USER/-1/${data.IPv4}`) // use previous data (ip address) to find exact details
-                .then(data2 => {
-                    doxarray[1] = data2; // new exact details i.e hometown state city
-                    datafinish(); // call the final function since all of the information is now here
-                })
-        })
-        doxerboxer.innerText = "nothing... still";
-    function datafinish() {
-        let short = doxarray[1].nearest_postal_code_info; // to make the array readable
-        let firstarray = [short.country_name, short.country_code, short.postal_code, short.place_name, short.state, short.province, "Latitude " + short.lat + " Degrees", "Longitude " + short.lon + " Degrees"];
-        let intostring = ""
-        firstarray.map((value) => { // get all values from the array and put them all into a string (seperated with line breaks)
-            intostring += value + "\n"
-        })
-        doxerboxer.innerText = "IPv4: " + doxarray[0].IPv4 + "\n" + intostring; // get all information and set the div text
-    }
-} else {
-    console.log("local file don't dox");
-    doxerboxer.innerText = "currently on local file no dox";
-}
-*/

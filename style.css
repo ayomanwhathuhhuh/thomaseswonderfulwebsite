@@ -38,6 +38,9 @@ WEBSITE GLOBAL CSS
 /**
 STUFF?
 **/
+body {
+  background-color: var(--main-bg-color);
+}
 header {
   display: flex;
   position: fixed; /*Remains at the same spot on the screen AND takes up space*/
