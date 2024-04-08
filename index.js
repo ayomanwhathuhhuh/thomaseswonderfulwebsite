@@ -78,3 +78,4 @@ function handlenavbar(args) {
 window.addEventListener("resize", () => handlenavbar("resize"));
 primarynavbarmobile.addEventListener("click", () => handlenavbar("click"));
 handlenavbar("onload"); // when the js file is ran for the first time.
+
