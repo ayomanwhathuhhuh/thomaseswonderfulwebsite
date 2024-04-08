@@ -6,7 +6,8 @@ function currentpositionfunction(theelement) {
 // MUCH BETTER version of navbar that got deleted on accident
 let navbartogglevar = false;
 let primarynavbarmobile = document.querySelector(".primary-navbar-mobile");
-let primarynavbar = (passedfunction) =>
+let primarynavbar = document.querySelector(".primary-navbar");
+let primarynavbarlines = (passedfunction) =>
   document
     .querySelectorAll(".primary-navbar-lines")
     .forEach((element) => passedfunction(element));
@@ -36,17 +37,39 @@ function handlenavbar(args) {
   if (args == "resize" || args == "onload") {
     if (window.innerWidth > 768) {
       primarynavbarmobile.style.display = "none";
-      primarynavbar((element) => (element.style.flexDirection = "row"));
+      primarynavbar.style.flexDirection = "row";
+      header.style.maxHeight = "3rem"; // reset navbar height only when the window is big enough
+      primarynavbarlines((element) => {
+        element.style.opacity = "1";
+        element.style.margin = "2rem";
+        element.style.pointerEvents = "auto";
+      });
+      navbartogglevar = true // navbar fully reset probably
     } else {
       primarynavbarmobile.style.display = "flex";
-      primarynavbar((element) => (element.style.flexDirection = "column"));
+      primarynavbar.style.flexDirection = "column";
+      if (navbartogglevar == true || args == "onload") {
+        primarynavbarlines((element) => {
+          element.style.opacity = "0";
+          element.style.margin = "0.5rem";
+          element.style.pointerEvents = "none";
+        });
+      }
     }
   } else if (args == "click") {
     if (navbartogglevar == true) {
-      header.style.height = "3rem";
+      header.style.maxHeight = "3rem";
+      primarynavbarlines((element) => {
+        element.style.opacity = "0";
+        element.style.pointerEvents = "none";
+      });
       navbartogglevar = false;
     } else {
-      header.style.height = "25vh";
+      header.style.maxHeight = "25vh";
+      primarynavbarlines((element) => {
+        element.style.opacity = "1";
+        element.style.pointerEvents = "auto";
+      });
       navbartogglevar = true;
     }
   }
@@ -55,3 +78,4 @@ function handlenavbar(args) {
 window.addEventListener("resize", () => handlenavbar("resize"));
 primarynavbarmobile.addEventListener("click", () => handlenavbar("click"));
 handlenavbar("onload"); // when the js file is ran for the first time.
+
